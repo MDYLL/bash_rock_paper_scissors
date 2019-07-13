@@ -1,0 +1,39 @@
+echo Rock-Paper-Scissors
+turns=("rock" "paper" "scissors")
+x=5
+while [ $x != 3 ]
+    do
+    echo New Game
+    echo input your choise:
+    echo rock - 0
+    echo paper - 1
+    echo scissors - 2
+    echo exit - 3
+    read x
+    echo your choise is ${turns[$x]}
+    y=$RANDOM
+    let "y1 = y % 100"
+    if [ $y1 -le 21 ]
+        then
+        echo I am lucky today
+        z=x+1
+        let "z1 = z % 3"
+        else
+        z=$RANDOM
+        let "z1 = z % 3"
+    fi
+    echo my choise is ${turns[$z1]}
+    dif=z1-x+3
+    let "dif = dif % 3"
+    if [ $dif -eq 1 ]
+        then
+            echo I win
+        elif [ $dif -eq 0 ]
+        then
+            echo Draw
+        else
+            echo You win
+        fi
+    done
+
+
